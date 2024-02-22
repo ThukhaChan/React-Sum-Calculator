@@ -84,17 +84,19 @@ function App() {
         </div>
 
         <div className="mt-3">
-          <Button className="btn btn-dark me-lg-4" onClick={sumNum}>
+          <Button className="btn me-lg-4" style={{ backgroundColor:'#8cb0b6' }} onClick={sumNum}>
             <PlusIcon width={20} />
           </Button>
-          <Button className="btn btn-dark me-lg-4" onClick={subNum}>
+          <Button className="btn me-lg-4"  style={{ backgroundColor:'#8cb0b6' }} onClick={subNum}>
             <MinusIcon width={20} />
           </Button>
-          <Button className="btn btn-dark me-lg-4" onClick={mulNum}>
+          <Button className="btn me-lg-4" style={{ backgroundColor:'#8cb0b6' }}  onClick={mulNum}>
             <XMarkIcon width={20} />
           </Button>
-          <Button className="btn btn-dark me-lg-4" onClick={divNum}>
-            ➗
+          <Button className="btn me-lg-4" style={{ backgroundColor:'#8cb0b6', height:'38px', width:'46px'}} onClick={divNum}>
+            {/* <span style={{ fontSize:'23px'}}> */}
+            ÷
+            {/* </span> */}
           </Button>
           {operation && (
             <h5 className="mt-2">
