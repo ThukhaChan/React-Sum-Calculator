@@ -1,31 +1,34 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import {
-  CheckIcon,
-  MinusIcon,
-  PlusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/solid";
+import { MinusIcon, PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import Button from "react-bootstrap/Button";
 
 function App() {
-  let [num1, setnum1] = useState();
-  let [num2, setnum2] = useState();
+  let [num1, setnum1] = useState(0);
+  let [num2, setnum2] = useState(0);
   let [sum, setSum] = useState();
   let [sub, setSub] = useState();
   let [div, setDiv] = useState();
   let [mul, setMul] = useState();
-  let [result, setResult] = useState();
+  let [result, setResult] = useState(null);
   let [operation, setOperation] = useState(null);
 
-  // Sum Function
+  // * Sum Function
   let sumNum = () => {
+    if (!num1 || !num2) {
+      setResult("Please enter both numbers");
+      return;
+    }
     setResult(parseInt(num1) + parseInt(num2));
     setOperation("Sum");
   };
 
-  // Sub Function
+  //* Sub Function
   let subNum = () => {
+    if (!num1 || !num2) {
+      setResult("Please enter both numbers");
+      return;
+    }
     if (parseInt(num1) < parseInt(num2)) {
       // Display message when num2 is less than num1
       setResult("Cannot subtract, first number is smaller");
@@ -36,8 +39,12 @@ function App() {
     }
   };
 
-  // Div Function
+  // * Div Function
   let divNum = () => {
+    if (!num1 || !num2) {
+      setResult("Please enter both numbers");
+      return;
+    }
     if (parseInt(num2) === 0) {
       setResult("Cannot divide by zero Idiot!");
       setOperation("Division");
@@ -46,14 +53,19 @@ function App() {
       setOperation("Division");
     }
   };
-  // Mul Function
+
+  // * Mul Function
   let mulNum = () => {
+    if (!num1 || !num2) {
+      setResult("Please enter both numbers");
+      return;
+    }
     setResult(parseInt(num1) * parseInt(num2));
     setOperation("Multiplication");
   };
 
   useEffect(() => {
-    console.log("rander again");
+    console.log("Hello Rander");
   }, []);
 
   return (
@@ -64,6 +76,7 @@ function App() {
           <span className="fs-5">First Number</span>
           <input
             className="input"
+            required
             type="number"
             placeholder="Enter First Number"
             onChange={(change) => {
@@ -71,32 +84,50 @@ function App() {
             }}
           ></input>
         </div>
-
         <div>
           <span className="fs-5">Second Number</span>
           <input
             type="number"
             placeholder="Enter Second Number"
+            required
             onChange={(change) => {
               setnum2(change.target.value);
             }}
           ></input>
         </div>
-
         <div className="mt-3">
-          <Button className="btn me-lg-4" style={{ backgroundColor:'#8cb0b6' }} onClick={sumNum}>
+
+          <Button
+            className="btn me-lg-4"
+            style={{ backgroundColor: "#8cb0b6" }}
+            onClick={sumNum}
+          >
             <PlusIcon width={20} />
           </Button>
-          <Button className="btn me-lg-4"  style={{ backgroundColor:'#8cb0b6' }} onClick={subNum}>
+          <Button
+            className="btn me-lg-4"
+            style={{ backgroundColor: "#8cb0b6" }}
+            onClick={subNum}
+          >
             <MinusIcon width={20} />
           </Button>
-          <Button className="btn me-lg-4" style={{ backgroundColor:'#8cb0b6' }}  onClick={mulNum}>
+          <Button
+            className="btn me-lg-4"
+            style={{ backgroundColor: "#8cb0b6" }}
+            onClick={mulNum}
+          >
             <XMarkIcon width={20} />
           </Button>
-          <Button className="btn me-lg-4" style={{ backgroundColor:'#8cb0b6', height:'38px', width:'46px'}} onClick={divNum}>
-            {/* <span style={{ fontSize:'23px'}}> */}
-            ÷
-            {/* </span> */}
+          <Button
+            className="btn me-lg-4"
+            style={{
+              backgroundColor: "#8cb0b6",
+              height: "38px",
+              width: "46px",
+            }}
+            onClick={divNum}
+          >
+            {/* <span style={{ fontSize:'23px'}}> */}÷{/* </span> */}
           </Button>
           {operation && (
             <h5 className="mt-2">

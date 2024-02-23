@@ -1,0 +1,5 @@
+{
+    "better-comments.highlightPlainText": true,
+    "blade.format.enable": true,
+    "bladeFormatter.format.indentInnerHtml": true
+}
