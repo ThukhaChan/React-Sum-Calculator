@@ -11,14 +11,16 @@
   background-position: center; 
 }
 .con {
-  /* box-shadow: 0px 0px 12px rgb(146, 139, 139); */
+  /* box-shadow: 0px 0px 12px rgb(146, 139, 139);/
   /* background-color: #e1b59c; */
   background-color: #f7ac99;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 3rem;
   width: 30%;
-  margin-left: 300px; /* Align to the right */
-  margin-right: auto; /* Add some margin from the right side */
+  margin-left: 200px; 
+  margin-right: auto; 
+  box-shadow: 0px 0px 12px rgb(39, 7, 7);
+  
    
 }
 .App-logo {
