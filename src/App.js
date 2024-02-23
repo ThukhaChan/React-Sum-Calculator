@@ -76,8 +76,8 @@ function App() {
     <div className="App">
       <div className="con">
         <h1>Calculator</h1>
-        <div>
-          <span className="fs-5">First Number</span>
+        <div className=" mt-5">
+          {/* <span className="fs-5">First Number</span> */}
           <input
             className="input"
             inputMode="decimal"
@@ -90,8 +90,8 @@ function App() {
             }}
           ></input>
         </div>
-        <div>
-          <span className="fs-5">Second Number</span>
+        <div className=" mt-3">
+          {/* <span className="fs-5">Second Number</span> */}
           <input
             type="number"
             value={num2}
